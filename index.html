@@ -5,8 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="google" content="notranslate" />
     <title>Afterbeat - Rhythm Game</title>
-    <script type="module" crossorigin src="./assets/index-CVEqw7P0.js"></script>
-    <link rel="stylesheet" crossorigin href="./assets/index-DBLMdc0R.css">
+    <script type="module" crossorigin src="./assets/index-CIc1xgAn.js"></script>
+    <link rel="stylesheet" crossorigin href="./assets/index-TidrCPzs.css">
   </head>
   <body class="theme-retro-scifi notranslate" translate="no">
     <div id="calibrationToast" class="calibration-toast hidden" aria-live="polite" aria-hidden="true"></div>
@@ -61,6 +61,11 @@
               <span class="settings-control__label">Display latency offset (ms): <span id="visualLatencyValue">0</span></span>
               <input id="visualLatency" type="range" min="-200" max="200" step="1" value="0" />
             </label>
+
+            <label class="settings-control settings-control--checkbox" for="audioFxOffDebug">
+              <input id="audioFxOffDebug" type="checkbox" />
+              <span class="settings-control__label">Audio FX off (debug)</span>
+            </label>
           </div>
 
         </section>
@@ -86,14 +91,18 @@
         <div id="displayCalibrationPanel" class="display-calibration-panel hidden" aria-hidden="true">
           <div class="display-calibration-panel__header">
             <p class="display-calibration-panel__title">Display Latency Calibration</p>
-            <p class="display-calibration-panel__hint">Adjust the slider until the 4 CPU points line up with the beats.</p>
+            <p class="display-calibration-panel__hint">Adjust until it lines up as closely as possible.</p>
           </div>
           <div class="display-calibration-point-row" aria-hidden="true">
-            <span id="displayCalibrationBeatPoint" class="pattern-line-event is-visible">
+            <span id="displayCalibrationBeatPoint" class="pattern-line-event is-visible display-calibration-point display-calibration-point--player">
               <span class="pattern-line-hit"></span>
             </span>
           </div>
           <div class="display-calibration-panel__controls">
+            <div class="display-calibration-panel__direction-hint" aria-hidden="true">
+              <span>&larr; Earlier visuals</span>
+              <span>Later visuals &rarr;</span>
+            </div>
             <label class="display-calibration-panel__label" for="displayCalibrationSlider">
               Offset (ms): <span id="displayCalibrationValue">0</span>
             </label>
