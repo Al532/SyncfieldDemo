@@ -3,271 +3,46 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Syncfield</title>
-    <style>
-      body.theme-retro-scifi {
-        --bg: #0a0f1c;
-        --card: #121a2b;
-        --text: #b8f3e4;
-        --accent: #7fffd4;
-        --ok: #7fffd4;
-        --warn: #f7a34b;
-        --danger: #ff5d5d;
-        --retro-line: #6fa8c9;
-        --retro-shadow: #02050d;
-        --retro-grid-a: rgba(127, 255, 212, 0.06);
-        --retro-grid-b: rgba(16, 25, 41, 0.84);
-        background:
-          linear-gradient(180deg, #0d1425 0%, #070c17 100%);
-        font-family: "VT323", "Courier New", "Lucida Console", monospace;
-        letter-spacing: 0.03em;
-      }
-
-      body.theme-retro-scifi::before {
-        content: "";
-        position: fixed;
-        inset: 0;
-        z-index: -2;
-        pointer-events: none;
-        background:
-          repeating-linear-gradient(
-            0deg,
-            transparent 0 2px,
-            rgba(127, 255, 212, 0.035) 2px 3px
-          ),
-          linear-gradient(180deg, var(--retro-grid-b), #060a13);
-      }
-
-      body.theme-retro-scifi::after {
-        opacity: 0.2;
-        mix-blend-mode: screen;
-      }
-
-      body.theme-retro-scifi .app::before {
-        content: "";
-        position: fixed;
-        inset: 0;
-        z-index: 3;
-        pointer-events: none;
-        background:
-          radial-gradient(circle at 50% 50%, transparent 42%, rgba(0, 0, 0, 0.42) 100%),
-          repeating-linear-gradient(
-            0deg,
-            rgba(0, 0, 0, 0.2) 0 1px,
-            transparent 1px 4px
-          );
-        animation: crtNoiseJitter 260ms steps(2) infinite;
-      }
-
-      @keyframes crtNoiseJitter {
-        0% { transform: translate(0, 0); opacity: 0.4; }
-        33% { transform: translate(0, 0.3px); opacity: 0.34; }
-        66% { transform: translate(0, -0.3px); opacity: 0.38; }
-        100% { transform: translate(0, 0); opacity: 0.4; }
-      }
-
-      body.theme-retro-scifi .app {
-        width: min(980px, 100%);
-      }
-
-      body.theme-retro-scifi .screen {
-        gap: 0.8rem;
-      }
-
-      body.theme-retro-scifi .start-title {
-        color: #d6fff3;
-        letter-spacing: 0.09em;
-        text-shadow:
-          1px 0 0 #21516a,
-          -1px 0 0 #21516a,
-          0 1px 0 #21516a,
-          0 -1px 0 #21516a,
-          0 0 18px rgba(127, 255, 212, 0.35);
-        animation-duration: 1.4s;
-      }
-
-      body.theme-retro-scifi .app-version {
-        color: #7fd8c2;
-        text-transform: uppercase;
-      }
-
-      body.theme-retro-scifi .start-menu,
-      body.theme-retro-scifi .start-settings-page,
-      body.theme-retro-scifi #displayCalibrationPanel,
-      body.theme-retro-scifi .result-screen {
-        border: 1px solid var(--retro-line);
-        border-radius: 0;
-        background:
-          linear-gradient(135deg, rgba(17, 28, 47, 0.95), rgba(8, 13, 24, 0.96));
-        box-shadow:
-          inset 0 0 0 1px #1f3953,
-          0 0 0 1px #06101d,
-          6px 6px 0 rgba(2, 5, 13, 0.8);
-      }
-
-      body.theme-retro-scifi .start-menu {
-        padding: 0.85rem;
-      }
-
-      body.theme-retro-scifi .settings-group {
-        border: 1px solid #446684;
-        border-radius: 0;
-        background: linear-gradient(180deg, rgba(15, 25, 43, 0.92), rgba(10, 17, 30, 0.94));
-      }
-
-      body.theme-retro-scifi .start-menu-entry,
-      body.theme-retro-scifi .settings-screen button,
-      body.theme-retro-scifi .start-settings-page button,
-      body.theme-retro-scifi .result-screen button,
-      body.theme-retro-scifi #backToMenu,
-      body.theme-retro-scifi .stop-button,
-      body.theme-retro-scifi .pause-button {
-        border-radius: 0 !important;
-        border: 1px solid #5f91b3 !important;
-        color: #d3fff3 !important;
-        background:
-          linear-gradient(180deg, #1b2e47 0%, #121f32 100%) !important;
-        box-shadow:
-          inset 0 0 0 1px #274865,
-          2px 2px 0 var(--retro-shadow) !important;
-        text-transform: uppercase;
-        font-size: clamp(0.95rem, 2.4vw, 1.15rem);
-        letter-spacing: 0.06em;
-      }
-
-      body.theme-retro-scifi .start-menu-entry:hover,
-      body.theme-retro-scifi .start-menu-entry:focus-visible,
-      body.theme-retro-scifi .settings-screen button:hover,
-      body.theme-retro-scifi .settings-screen button:focus-visible,
-      body.theme-retro-scifi .start-settings-page button:hover,
-      body.theme-retro-scifi .start-settings-page button:focus-visible,
-      body.theme-retro-scifi .result-screen button:hover,
-      body.theme-retro-scifi .result-screen button:focus-visible,
-      body.theme-retro-scifi #backToMenu:hover,
-      body.theme-retro-scifi #backToMenu:focus-visible {
-        border-color: #9cecd6 !important;
-        background: linear-gradient(180deg, #253e5e 0%, #17263c 100%) !important;
-        transform: translate(-1px, -1px);
-      }
-
-      body.theme-retro-scifi .stop-button {
-        border-color: #d68257 !important;
-        color: #ffd4be !important;
-        background: linear-gradient(180deg, #44261d 0%, #2a1711 100%) !important;
-      }
-
-      body.theme-retro-scifi .pause-button {
-        border-color: #8bc5a5 !important;
-      }
-
-      body.theme-retro-scifi .tap-zone {
-        border: 0 !important;
-        border-radius: 0;
-        background: transparent !important;
-        box-shadow: none !important;
-        outline: none;
-        cursor: default !important;
-        appearance: none;
-        -webkit-appearance: none;
-        transition: filter 130ms ease;
-      }
-
-      body.theme-retro-scifi .tap-zone::before,
-      body.theme-retro-scifi .tap-zone::after {
-        display: none;
-      }
-
-      body.theme-retro-scifi .tap-zone__text {
-        position: relative;
-        inset: auto;
-        display: block;
-        color: #dcfff4;
-        text-shadow:
-          1px 0 0 rgba(19, 40, 60, 0.9),
-          -1px 0 0 rgba(19, 40, 60, 0.9),
-          0 0 8px rgba(127, 255, 212, 0.22),
-          0 0 14px rgba(127, 255, 212, 0.2);
-        letter-spacing: 0.16em;
-      }
-
-      body.theme-retro-scifi .tap-judgement {
-        font-size: clamp(1.2rem, 4.1vw, 1.9rem);
-        text-shadow: 0 0 14px rgba(127, 255, 212, 0.28);
-      }
-
-      body.theme-retro-scifi .tap-judgement.perfect { color: #91ffe0; }
-      body.theme-retro-scifi .tap-judgement.good { color: #82cdf8; }
-      body.theme-retro-scifi .tap-judgement.miss { color: #ff866f; }
-      body.theme-retro-scifi .tap-zone__liquid,
-      body.theme-retro-scifi .tap-zone__score-liquid,
-      body.theme-retro-scifi .tap-zone__surface,
-      body.theme-retro-scifi .tap-zone__caustics,
-      body.theme-retro-scifi .tap-zone__gloss {
-        display: none;
-      }
-
-      body.theme-retro-scifi .tap-zone.listen-muted,
-      body.theme-retro-scifi .tap-zone.listen-release {
-        --tap-zone-scale: 1;
-        filter: none;
-      }
-
-      body.theme-retro-scifi.compact-phase-hud .tap-zone {
-        border: 0 !important;
-        background: transparent !important;
-        box-shadow: none !important;
-      }
-
-      body.theme-retro-scifi.compact-phase-hud .tap-zone__text {
-        text-shadow:
-          1px 0 0 rgba(23, 48, 70, 0.85),
-          -1px 0 0 rgba(23, 48, 70, 0.85),
-          0 0 10px rgba(127, 255, 212, 0.22);
-      }
-
-      body.theme-retro-scifi .calibration-progress,
-      body.theme-retro-scifi .calibration-offset-viz__value,
-      body.theme-retro-scifi .calibration-offset-viz__metrics {
-        border-radius: 0;
-        color: #cbfff0;
-        border-color: #4f7997;
-        background: rgba(10, 18, 31, 0.9);
-      }
-
-      body.theme-retro-scifi input[type="range"] {
-        accent-color: #7fffd4;
-      }
-
-      @media (max-width: 700px) {
-        body.theme-retro-scifi .start-menu,
-        body.theme-retro-scifi .start-settings-page {
-          box-shadow:
-            inset 0 0 0 1px #1f3953,
-            0 0 0 1px #06101d,
-            3px 3px 0 rgba(2, 5, 13, 0.8);
-        }
-      }
-    </style>
-    <script type="module" crossorigin src="/SyncfieldDemo/assets/index-CXeeJBnT.js"></script>
-    <link rel="stylesheet" crossorigin href="/SyncfieldDemo/assets/index-D_wSy52l.css">
+    <meta name="google" content="notranslate" />
+    <title>Afterbeat - Rhythm Game</title>
+    <script type="module" crossorigin src="./assets/index-CyjguJOU.js"></script>
+    <link rel="stylesheet" crossorigin href="./assets/index-YzbI39gp.css">
   </head>
-  <body class="theme-retro-scifi">
-    <canvas id="fxBackgroundCanvas" aria-hidden="true"></canvas>
-    <canvas id="fxCanvas" aria-hidden="true"></canvas>
+  <body class="theme-retro-scifi notranslate" translate="no">
     <div id="calibrationToast" class="calibration-toast hidden" aria-live="polite" aria-hidden="true"></div>
     <main class="app">
       <section id="startScreen" class="screen start-screen">
         <div id="startMenuView" class="start-menu-view">
           <p class="app-version">Build <span id="appVersion"></span></p>
-          <h1 class="start-title" aria-label="Syncfield">Syncfield</h1>
+          <h1 class="start-title" aria-label="Afterbeat">Afterbeat</h1>
+          <p class="start-subtitle">Rhythm Game</p>
 
           <div class="start-menu">
             <button id="startGame" class="start-menu-entry" type="button">Start game</button>
             <button id="calibration" class="start-menu-entry" type="button">Calibration</button>
+            <button id="savedSeedsButton" class="start-menu-entry" type="button">Saved seeds</button>
             <button id="startMenuSettings" class="start-menu-entry" type="button" aria-expanded="false" aria-controls="settingsScreen">Settings</button>
           </div>
         </div>
 
+      </section>
+      <section id="savedSeedsScreen" class="screen start-screen settings-screen hidden">
+        <section id="savedSeedsPanel" class="controls card start-settings-page" aria-hidden="false">
+          <div class="start-settings-header">
+            <h2 class="start-settings-title">Saved seeds</h2>
+            <button id="savedSeedsBack" type="button">Back</button>
+          </div>
+          <p id="savedSeedsEmpty" class="saved-seeds-empty hidden">No saved seeds yet.</p>
+          <div id="savedSeedsList" class="saved-seeds-list" aria-live="polite"></div>
+          <form id="manualSeedForm" class="saved-seed-manual" autocomplete="off">
+            <label class="settings-control" for="manualSeedInput">
+              <span>Play a specific seed</span>
+              <input id="manualSeedInput" type="text" inputmode="numeric" placeholder="Enter an integer seed" />
+            </label>
+            <button id="manualSeedPlay" type="submit">Play</button>
+          </form>
+          <p id="manualSeedFeedback" class="saved-seed-feedback hidden" aria-live="polite"></p>
+        </section>
       </section>
       <section id="settingsScreen" class="screen start-screen settings-screen hidden">
         <section id="startSettingsPanel" class="controls card start-settings-page" aria-hidden="false">
@@ -288,36 +63,17 @@
             </label>
           </div>
 
-          <p id="calibrationResult" class="calibration-result">Calibration not started.</p>
-
-          <div class="settings-group">
-            <label class="settings-control">
-              <span class="settings-control__label">Points recovered per second: <span id="scoreRecoveryPerSecondValue">0.1</span></span>
-              <input id="scoreRecoveryPerSecond" type="range" min="0" max="1" step="0.1" value="0.1" />
-            </label>
-
-            <label class="settings-control">
-              <span class="settings-control__label">Max points</span>
-              <input id="maxScore" type="text" inputmode="numeric" value="10" />
-            </label>
-          </div>
-
-          <label class="settings-control settings-control--checkbox">
-            <input id="infiniteMode" type="checkbox" checked />
-            <span>Infinite mode (no game over at 0 score)</span>
-          </label>
-          <fieldset>
-            <legend>Visual effects</legend>
-            <label class="settings-control settings-control--checkbox">
-              <input id="fxToggleWebglEngine" type="checkbox" checked />
-              <span>WebGL engine</span>
-            </label>
-          </fieldset>
         </section>
       </section>
       <section id="gameScreen" class="screen game-screen hidden">
         <button id="stopGame" class="stop-button" type="button">STOP</button>
         <button id="pauseGame" class="pause-button" type="button">PAUSE</button>
+        <p id="phaseIndicator" class="phase-indicator hidden" aria-live="polite"></p>
+        <div id="inputCalibrationHeader" class="input-calibration-header hidden" aria-hidden="true">
+          <p id="inputCalibrationTitle" class="input-calibration-title">Input Latency Calibration</p>
+          <p id="inputCalibrationHint" class="input-calibration-hint">Tap in time with the beats.</p>
+        </div>
+        <button id="calibrationSkip" class="calibration-skip-button calibration-action-button hidden" type="button">Skip</button>
         <p id="tapJudgement" class="tap-judgement" aria-live="polite"></p>
         <p id="calibrationProgress" class="calibration-progress hidden"></p>
         <div id="calibrationOffsetViz" class="calibration-offset-viz hidden" aria-hidden="true">
@@ -328,30 +84,42 @@
           <p id="calibrationOffsetVizMetrics" class="calibration-offset-viz__metrics">sigma: n/a | p--: n/a | std: n/a</p>
         </div>
         <div id="displayCalibrationPanel" class="display-calibration-panel hidden" aria-hidden="true">
-          <p class="display-calibration-panel__title">Display latency calibration</p>
-          <p class="display-calibration-panel__hint">Adjust until flash matches audio beat.</p>
-          <label class="display-calibration-panel__label" for="displayCalibrationSlider">
-            Offset (ms): <span id="displayCalibrationValue">0</span>
-          </label>
-          <input id="displayCalibrationSlider" type="range" min="-200" max="200" step="1" value="0" />
+          <div class="display-calibration-panel__header">
+            <p class="display-calibration-panel__title">Display Latency Calibration</p>
+            <p class="display-calibration-panel__hint">Adjust the slider until the 4 CPU points line up with the beats.</p>
+          </div>
+          <div class="display-calibration-point-row" aria-hidden="true">
+            <span id="displayCalibrationBeatPoint" class="pattern-line-event is-visible">
+              <span class="pattern-line-hit"></span>
+            </span>
+          </div>
+          <div class="display-calibration-panel__controls">
+            <label class="display-calibration-panel__label" for="displayCalibrationSlider">
+              Offset (ms): <span id="displayCalibrationValue">0</span>
+            </label>
+            <input id="displayCalibrationSlider" type="range" min="-200" max="200" step="1" value="0" />
+          </div>
           <div class="display-calibration-panel__actions">
-            <button id="displayCalibrationSave" type="button">Save</button>
-            <button id="displayCalibrationCancel" type="button">Cancel</button>
+            <button id="displayCalibrationSave" class="calibration-action-button" type="button">Save</button>
+            <button id="displayCalibrationCancel" class="calibration-action-button" type="button">Skip</button>
           </div>
         </div>
-        <button id="tapZone" class="tap-zone" aria-label="Tap input zone">
-          <span class="tap-zone__liquid" aria-hidden="true"></span>
-          <span class="tap-zone__score-liquid" aria-hidden="true"></span>
-          <span class="tap-zone__surface" aria-hidden="true"></span>
-          <span class="tap-zone__caustics" aria-hidden="true"></span>
-          <span class="tap-zone__gloss" aria-hidden="true"></span>
-          <span id="tapZoneText" class="tap-zone__text">Tap on the beat!</span>
-        </button>
+        <p id="patternScoreFlash" class="pattern-score-flash" aria-live="polite"></p>
+        <div id="patternLine" class="pattern-line" aria-hidden="true">
+          <div id="patternLineTrack" class="pattern-line__track"></div>
+        </div>
+        <div id="patternScoreDots" class="pattern-score-dots" aria-hidden="true"></div>
       </section>
 
       <section id="resultScreen" class="screen result-screen hidden">
         <h1 id="resultTitle"></h1>
         <p id="resultText"></p>
+        <div id="resultSeedPanel" class="result-seed-panel hidden" aria-live="polite">
+          <p id="resultSeedPrompt" class="result-seed-prompt"></p>
+          <p id="resultSeedValue" class="result-seed-value hidden"></p>
+          <button id="saveResultSeed" type="button">Save seed</button>
+          <p id="resultSeedFeedback" class="result-seed-feedback hidden"></p>
+        </div>
         <button id="backToMenu" type="button">Back to menu</button>
       </section>
     </main>
