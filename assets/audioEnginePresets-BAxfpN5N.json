@@ -1,11 +1,13 @@
 {
   "version": 5,
-  "exportedAt": "2026-02-23T10:09:35.705Z",
-  "defaultPresets": {
-    "StylePresets": "Accentué",
-    "MusicScalePresets": "Aéolien",
-    "SynthPresets": "Défaut"
+  "exportedAt": "2026-03-08T17:55:42.642Z",
+  "defaults": {
+    "StylePresets": "Mélodique",
+    "MusicScalePresets": "eolian",
+    "SynthPresets": "pulse"
   },
+  "tonic": "a",
+  "bpm": 70,
   "presets": {
     "StylePresets": {
       "Syncopé": {
@@ -190,7 +192,19 @@
       }
     },
     "MusicScalePresets": {
-      "Aéolien": {
+      "eolian": {
+        "primaryTones": "c, d#, g",
+        "secondaryTones": "d, f, g#, a#",
+        "approachTones": "",
+        "forbiddenTones": "c#, e, f#, a, b"
+      },
+      "dorian": {
+        "primaryTones": "c, d#, g, a#",
+        "secondaryTones": "d, f, a",
+        "approachTones": "",
+        "forbiddenTones": "c#, e, f#, g#, b"
+      },
+      "eolian blues": {
         "primaryTones": "c, d#, g",
         "secondaryTones": "d, f, g#, a#",
         "approachTones": "f#",
@@ -198,7 +212,7 @@
       }
     },
     "SynthPresets": {
-      "Défaut": {
+      "supersaw": {
         "oscillatorType": "fatsawtooth",
         "ambitusMin": "55",
         "ambitusMax": "78",
@@ -206,6 +220,7 @@
         "envelopeDecay": 0.3,
         "envelopeSustain": 0.8,
         "envelopeRelease": 0.13,
+        "volumeDb": -7,
         "spread": 20,
         "count": 3,
         "filterFrequency": 8000,
@@ -214,13 +229,113 @@
         "filterEnvelopeBaseFrequency": 200,
         "filterEnvelopeOctaves": 4.7,
         "filterEnvelopeRelease": 0.13,
+        "pulseWidth": 0.5,
+        "pwmModulationFrequency": 0.4,
+        "chorusEnabled": true,
+        "chorusFrequency": 3.9,
+        "chorusDelayTime": 2.1,
+        "chorusDepth": 0.27,
+        "chorusWet": 0.41,
+        "reverbEnabled": true,
+        "jcReverbRoomSize": 0.32,
+        "jcReverbWet": 0.24,
+        "distortionEnabled": false,
+        "distortionAmount": 0,
+        "distortionOversample": "2x",
+        "distortionWet": 0.39
+      },
+      "sine": {
+        "oscillatorType": "triangle",
+        "ambitusMin": "55",
+        "ambitusMax": "78",
+        "envelopeAttack": 0.005,
+        "envelopeDecay": 0.3,
+        "envelopeSustain": 0.8,
+        "envelopeRelease": 0.13,
+        "volumeDb": 0,
+        "spread": 20,
+        "count": 3,
+        "filterFrequency": 8000,
+        "filterEnvelopeAttack": 0.013,
+        "filterEnvelopeSustain": 1,
+        "filterEnvelopeBaseFrequency": 200,
+        "filterEnvelopeOctaves": 4.7,
+        "filterEnvelopeRelease": 0.13,
+        "pulseWidth": 0.5,
+        "pwmModulationFrequency": 0.4,
+        "chorusEnabled": false,
         "chorusFrequency": 2.1,
         "chorusDelayTime": 2.1,
         "chorusDepth": 0.37,
         "chorusWet": 0.25,
-        "reverbDecay": 1.5,
-        "reverbPreDelay": 0.011,
-        "reverbWet": 0.55,
+        "reverbEnabled": true,
+        "jcReverbRoomSize": 0.68,
+        "jcReverbWet": 0.07,
+        "distortionEnabled": false,
+        "distortionAmount": 0,
+        "distortionOversample": "2x",
+        "distortionWet": 0.39
+      },
+      "pulse": {
+        "oscillatorType": "pulse",
+        "ambitusMin": "55",
+        "ambitusMax": "78",
+        "envelopeAttack": 0.005,
+        "envelopeDecay": 0.3,
+        "envelopeSustain": 1,
+        "envelopeRelease": 0.09,
+        "volumeDb": -9,
+        "spread": 20,
+        "count": 3,
+        "filterFrequency": 8000,
+        "filterEnvelopeAttack": 0.025,
+        "filterEnvelopeSustain": 1,
+        "filterEnvelopeBaseFrequency": 200,
+        "filterEnvelopeOctaves": 3.8,
+        "filterEnvelopeRelease": 0.13,
+        "pulseWidth": 0.6,
+        "pwmModulationFrequency": 0.4,
+        "chorusEnabled": false,
+        "chorusFrequency": 2.1,
+        "chorusDelayTime": 2.1,
+        "chorusDepth": 0.37,
+        "chorusWet": 0.25,
+        "reverbEnabled": true,
+        "jcReverbRoomSize": 0.63,
+        "jcReverbWet": 0.06,
+        "distortionEnabled": false,
+        "distortionAmount": 0,
+        "distortionOversample": "2x",
+        "distortionWet": 0.39
+      },
+      "pwm": {
+        "oscillatorType": "pwm",
+        "ambitusMin": "55",
+        "ambitusMax": "78",
+        "envelopeAttack": 0.005,
+        "envelopeDecay": 0.3,
+        "envelopeSustain": 1,
+        "envelopeRelease": 0.09,
+        "volumeDb": -9,
+        "spread": 20,
+        "count": 3,
+        "filterFrequency": 8000,
+        "filterEnvelopeAttack": 0.025,
+        "filterEnvelopeSustain": 1,
+        "filterEnvelopeBaseFrequency": 200,
+        "filterEnvelopeOctaves": 3.8,
+        "filterEnvelopeRelease": 0.13,
+        "pulseWidth": 0.5,
+        "pwmModulationFrequency": 0.4,
+        "chorusEnabled": false,
+        "chorusFrequency": 2.1,
+        "chorusDelayTime": 2.1,
+        "chorusDepth": 0.37,
+        "chorusWet": 0.25,
+        "reverbEnabled": true,
+        "jcReverbRoomSize": 0.63,
+        "jcReverbWet": 0.06,
+        "distortionEnabled": false,
         "distortionAmount": 0,
         "distortionOversample": "2x",
         "distortionWet": 0.39
@@ -228,61 +343,64 @@
     }
   },
   "default": {
-    "tonic": "c#",
-    "bpm": 70,
     "rhythmSettings": {
       "bpm": 70,
       "jumpOddWeights": [
         1,
-        4,
-        0,
-        0,
+        10,
+        1,
+        1,
         0
       ],
       "jumpEvenWeights": [
-        0,
-        0,
         5,
+        0,
+        0,
         0,
         0
       ],
       "tripletChance": [
         1,
         1,
-        1
+        0
       ],
       "afterTripletWeights": [
-        5,
+        10,
         0,
         0,
         0
       ],
-      "repetitionProbabilityFactor": 0.72,
+      "repetitionProbabilityFactor": 0.25,
       "noteLengthPercentage": 100
     },
     "monosynthSettings": {
-      "oscillatorType": "fatsawtooth",
+      "oscillatorType": "pulse",
       "ambitusMin": "55",
       "ambitusMax": "78",
       "envelopeAttack": 0.005,
       "envelopeDecay": 0.3,
-      "envelopeSustain": 0.8,
-      "envelopeRelease": 0.13,
+      "envelopeSustain": 1,
+      "envelopeRelease": 0.09,
+      "volumeDb": -9,
       "spread": 20,
       "count": 3,
       "filterFrequency": 8000,
       "filterEnvelopeAttack": 0.025,
       "filterEnvelopeSustain": 1,
       "filterEnvelopeBaseFrequency": 200,
-      "filterEnvelopeOctaves": 4.7,
+      "filterEnvelopeOctaves": 3.8,
       "filterEnvelopeRelease": 0.13,
+      "pulseWidth": 0.6,
+      "pwmModulationFrequency": 0.4,
+      "chorusEnabled": false,
       "chorusFrequency": 2.1,
       "chorusDelayTime": 2.1,
       "chorusDepth": 0.37,
       "chorusWet": 0.25,
-      "reverbDecay": 1.5,
-      "reverbPreDelay": 0.011,
-      "reverbWet": 0.55,
+      "reverbEnabled": true,
+      "jcReverbRoomSize": 0.63,
+      "jcReverbWet": 0.06,
+      "distortionEnabled": false,
       "distortionAmount": 0,
       "distortionOversample": "2x",
       "distortionWet": 0.39
@@ -293,7 +411,7 @@
       "backingTrackVolumeDb": -7,
       "backingTrackEqFrequencyHz": 460,
       "backingTrackEqGainDb": -12,
-      "backingTrackEqQ": 1.0
+      "backingTrackEqQ": 1
     }
   }
 }

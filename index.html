@@ -7,8 +7,8 @@
      <title>Afterbeat - Rhythm Game</title>
      <link rel="icon" href="./assets/favicon-BQB3q6Gd.svg" type="image/svg+xml" />
      <link rel="mask-icon" href="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA2NCA2NCI+CiAgPHRleHQKICAgIHg9IjEzIgogICAgeT0iNDYiCiAgICBmaWxsPSIjMDAwIgogICAgZm9udC1mYW1pbHk9IkFyaWFsLCBIZWx2ZXRpY2EsIHNhbnMtc2VyaWYiCiAgICBmb250LXNpemU9IjMxIgogICAgZm9udC13ZWlnaHQ9IjcwMCIKICAgIGxldHRlci1zcGFjaW5nPSItMiIKICA+QTwvdGV4dD4KICA8dGV4dAogICAgeD0iMzEiCiAgICB5PSIzNiIKICAgIGZpbGw9IiMwMDAiCiAgICBmb250LWZhbWlseT0iQXJpYWwsIEhlbHZldGljYSwgc2Fucy1zZXJpZiIKICAgIGZvbnQtc2l6ZT0iMzEiCiAgICBmb250LXdlaWdodD0iNzAwIgogICAgbGV0dGVyLXNwYWNpbmc9Ii0yIgogID5CPC90ZXh0Pgo8L3N2Zz4K" color="#7fffd4" />
-    <script type="module" crossorigin src="./assets/index-BPbd76LK.js"></script>
-    <link rel="stylesheet" crossorigin href="./assets/index-TidrCPzs.css">
+    <script type="module" crossorigin src="./assets/index-BK84fdcH.js"></script>
+    <link rel="stylesheet" crossorigin href="./assets/index-DOCYE3Qg.css">
   </head>
   <body class="theme-retro-scifi notranslate" translate="no">
     <div id="calibrationToast" class="calibration-toast hidden" aria-live="polite" aria-hidden="true"></div>
@@ -44,6 +44,16 @@
             <button id="manualSeedPlay" type="submit">Play</button>
           </form>
           <p id="manualSeedFeedback" class="saved-seed-feedback hidden" aria-live="polite"></p>
+        </section>
+      </section>
+      <section id="trackSelectScreen" class="screen start-screen settings-screen hidden">
+        <section id="trackSelectPanel" class="controls card start-settings-page" aria-hidden="false">
+          <div class="start-settings-header">
+            <h2 class="start-settings-title">Select track</h2>
+            <button id="trackSelectBack" type="button">Back</button>
+          </div>
+          <p id="trackSelectEmpty" class="saved-seeds-empty hidden">No playable tracks found.</p>
+          <div id="trackSelectList" class="track-select-list" aria-live="polite"></div>
         </section>
       </section>
       <section id="settingsScreen" class="screen start-screen settings-screen hidden">
