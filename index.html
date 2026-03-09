@@ -5,10 +5,10 @@
      <meta name="viewport" content="width=device-width, initial-scale=1.0" />
      <meta name="google" content="notranslate" />
      <title>Afterbeat - Rhythm Game</title>
-     <link rel="icon" href="./assets/favicon-BQB3q6Gd.svg" type="image/svg+xml" />
-     <link rel="mask-icon" href="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA2NCA2NCI+CiAgPHRleHQKICAgIHg9IjEzIgogICAgeT0iNDYiCiAgICBmaWxsPSIjMDAwIgogICAgZm9udC1mYW1pbHk9IkFyaWFsLCBIZWx2ZXRpY2EsIHNhbnMtc2VyaWYiCiAgICBmb250LXNpemU9IjMxIgogICAgZm9udC13ZWlnaHQ9IjcwMCIKICAgIGxldHRlci1zcGFjaW5nPSItMiIKICA+QTwvdGV4dD4KICA8dGV4dAogICAgeD0iMzEiCiAgICB5PSIzNiIKICAgIGZpbGw9IiMwMDAiCiAgICBmb250LWZhbWlseT0iQXJpYWwsIEhlbHZldGljYSwgc2Fucy1zZXJpZiIKICAgIGZvbnQtc2l6ZT0iMzEiCiAgICBmb250LXdlaWdodD0iNzAwIgogICAgbGV0dGVyLXNwYWNpbmc9Ii0yIgogID5CPC90ZXh0Pgo8L3N2Zz4K" color="#7fffd4" />
-    <script type="module" crossorigin src="./assets/index-CmGXR41Z.js"></script>
-    <link rel="stylesheet" crossorigin href="./assets/index-DOCYE3Qg.css">
+     <link rel="icon" href="./assets/favicon-BT1FbfRQ.svg" type="image/svg+xml" />
+     <link rel="mask-icon" href="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA2NCA2NCI+DQogIDx0ZXh0DQogICAgeD0iMTMiDQogICAgeT0iNDYiDQogICAgZmlsbD0iIzAwMCINCiAgICBmb250LWZhbWlseT0iQXJpYWwsIEhlbHZldGljYSwgc2Fucy1zZXJpZiINCiAgICBmb250LXNpemU9IjMxIg0KICAgIGZvbnQtd2VpZ2h0PSI3MDAiDQogICAgbGV0dGVyLXNwYWNpbmc9Ii0yIg0KICA+QTwvdGV4dD4NCiAgPHRleHQNCiAgICB4PSIzMSINCiAgICB5PSIzNiINCiAgICBmaWxsPSIjMDAwIg0KICAgIGZvbnQtZmFtaWx5PSJBcmlhbCwgSGVsdmV0aWNhLCBzYW5zLXNlcmlmIg0KICAgIGZvbnQtc2l6ZT0iMzEiDQogICAgZm9udC13ZWlnaHQ9IjcwMCINCiAgICBsZXR0ZXItc3BhY2luZz0iLTIiDQogID5CPC90ZXh0Pg0KPC9zdmc+DQo=" color="#7fffd4" />
+    <script type="module" crossorigin src="./assets/index-DBifYzZd.js"></script>
+    <link rel="stylesheet" crossorigin href="./assets/index-BDrCcY4f.css">
   </head>
   <body class="theme-retro-scifi notranslate" translate="no">
     <div id="calibrationToast" class="calibration-toast hidden" aria-live="polite" aria-hidden="true"></div>
@@ -22,7 +22,6 @@
           <div class="start-menu">
             <button id="startGame" class="start-menu-entry" type="button">Start game</button>
             <button id="calibration" class="start-menu-entry" type="button">Calibration</button>
-            <button id="savedSeedsButton" class="start-menu-entry" type="button">Saved seeds</button>
             <button id="startMenuSettings" class="start-menu-entry" type="button" aria-expanded="false" aria-controls="settingsScreen">Settings</button>
           </div>
         </div>
@@ -31,14 +30,18 @@
       <section id="savedSeedsScreen" class="screen start-screen settings-screen hidden">
         <section id="savedSeedsPanel" class="controls card start-settings-page" aria-hidden="false">
           <div class="start-settings-header">
-            <h2 class="start-settings-title">Saved seeds</h2>
+            <div>
+              <h2 id="savedSeedsTitle" class="start-settings-title">Saved seeds</h2>
+              <p id="savedSeedsSubtitle" class="track-select-card__meta hidden"></p>
+            </div>
             <button id="savedSeedsBack" type="button">Back</button>
           </div>
+          <button id="savedSeedsStartTrack" class="saved-seed-play" type="button">Play this track</button>
           <p id="savedSeedsEmpty" class="saved-seeds-empty hidden">No saved seeds yet.</p>
           <div id="savedSeedsList" class="saved-seeds-list" aria-live="polite"></div>
           <form id="manualSeedForm" class="saved-seed-manual" autocomplete="off">
             <label class="settings-control" for="manualSeedInput">
-              <span>Play a specific seed</span>
+              <span>Play a specific seed for this track</span>
               <input id="manualSeedInput" type="text" inputmode="numeric" placeholder="Enter an integer seed" />
             </label>
             <button id="manualSeedPlay" type="submit">Play</button>
@@ -123,6 +126,10 @@
         </div>
         <p id="patternScoreFlash" class="pattern-score-flash" aria-live="polite"></p>
         <div id="patternLine" class="pattern-line" aria-hidden="true">
+          <div class="pattern-line__measure-bars">
+            <span id="patternLineMeasureBarStart" class="pattern-line-measure-bar pattern-line-measure-bar--start"></span>
+            <span id="patternLineMeasureBarEnd" class="pattern-line-measure-bar pattern-line-measure-bar--end"></span>
+          </div>
           <div id="patternLineTrack" class="pattern-line__track"></div>
         </div>
         <div id="patternScoreDots" class="pattern-score-dots" aria-hidden="true"></div>

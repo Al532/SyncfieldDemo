@@ -128,7 +128,9 @@
           0
         ],
         "repetitionProbabilityFactor": 0.25,
-        "noteLengthPercentage": 70
+        "noteLengthPercentage": 70,
+        "noBend": true,
+        "noFall": true
       },
       "Chaotique": {
         "bpm": 70,
@@ -158,7 +160,9 @@
           5
         ],
         "repetitionProbabilityFactor": 0,
-        "noteLengthPercentage": 70
+        "noteLengthPercentage": 70,
+        "noBend": true,
+        "noFall": true
       },
       "Accentué": {
         "bpm": 70,
