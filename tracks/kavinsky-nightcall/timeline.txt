@@ -1,0 +1,40 @@
+# --- NOTICE ---
+# Format attendu :
+# - En-tête global : BPM=..., offset=..., tonique=..., scale=…
+# - Exemple timeline : 8: rapide | BPM=90
+# - Timeline : "<cycle>: <pattern> [HT] [@Label] [| override=valeur ...]"
+# - Rappel : "<cycle>: @Source [-r|--rhythm-only] [@Dest] [| override=valeur ...]"
+# - Cycle absent => répétition du précédent
+# - 1 cycle = 2 mesures jouées (tour CPU puis tour joueur)
+# - "@A" seul => rejoue le snapshot complet mémorisé via "... @A"
+# - "@A -r" => réutilise seulement le rythme de A (mélodie/articulations régénérées)
+# - "@A -r @B" => idem puis sauvegarde le nouveau snapshot complet sous B
+# - "end" optionnel pour borner la track
+# - "hardEnd" termine la track puis fade l'audio sur 10s
+
+title="Nightcall"
+artist="Kavinsky"
+BPM=97
+offset=61ms
+tonique=a
+scale=eolian
+synth=pulse
+
+
+epars HT
+-r HT
+epars HT
+-r HT
+melodique @a
+-r
+syncope @b
+-r
+melodique
+-r
+syncope
+-r
+@a
+@b
+@a
+@b
+hardEnd

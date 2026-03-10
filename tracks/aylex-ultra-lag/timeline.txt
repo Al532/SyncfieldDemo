@@ -1,0 +1,39 @@
+# --- NOTICE ---
+# Format attendu :
+# - En-tête global : BPM=..., offset=..., tonique=..., scale=…
+# - Exemple timeline : 8: rapide | BPM=90
+# - Timeline : "<cycle>: <pattern> [HT] [@Label] [| override=valeur ...]"
+# - Rappel : "<cycle>: @Source [-r|--rhythm-only] [@Dest] [| override=valeur ...]"
+# - Cycle absent => répétition du précédent
+# - 1 cycle = 2 mesures jouées (tour CPU puis tour joueur)
+# - "@A" seul => rejoue le snapshot complet mémorisé via "... @A"
+# - "@A -r" => réutilise seulement le rythme de A (mélodie/articulations régénérées)
+# - "@A -r @B" => idem puis sauvegarde le nouveau snapshot complet sous B
+# - "end" optionnel pour borner la track
+# - "hardEnd" termine la track puis fade l'audio sur 10s
+
+title="Ultra-Lag"
+artist="Aylex"
+BPM=70
+offset=892ms
+tonique=c#
+scale=eolian blues
+tune=12cts
+synth=supersaw
+
+1: epars HT @C
+2: @C -r
+3: accentue @A
+4: @A -r
+5: syncope @B
+6: @B -r
+7: melodique @E
+8: @E -r
+9: epars HT @D
+10: @D -r
+11: @A
+12: @B
+13: @A
+14: @B
+15: rapide
+19: end

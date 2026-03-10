@@ -1,0 +1,41 @@
+# --- NOTICE ---
+# Format attendu :
+# - En-tête global : BPM=..., offset=..., tonique=..., scale=…
+# - Exemple timeline : 8: rapide | BPM=90
+# - Timeline : "<cycle>: <pattern> [HT] [@Label] [| override=valeur ...]"
+# - Rappel : "<cycle>: @Source [-r|--rhythm-only] [@Dest] [| override=valeur ...]"
+# - Cycle absent => répétition du précédent
+# - 1 cycle = 2 mesures jouées (tour CPU puis tour joueur)
+# - "@A" seul => rejoue le snapshot complet mémorisé via "... @A"
+# - "@A -r" => réutilise seulement le rythme de A (mélodie/articulations régénérées)
+# - "@A -r @B" => idem puis sauvegarde le nouveau snapshot complet sous B
+# - "end" optionnel pour borner la track
+# - "hardEnd" termine la track puis fade l'audio sur 10s
+
+title="Bike"
+artist="Tanger"
+BPM=105
+offset=821ms
+tonique=f#
+scale=locrian
+synth=hardsaw
+
+bursts
+bursts
+rapide
+rapide
+rapide
+rapide
+bursts
+bursts
+rapide
+rapide
+bursts
+bursts
+rapide
+rapide
+rapide
+rapide
+rapide
+rapide
+hardEnd
