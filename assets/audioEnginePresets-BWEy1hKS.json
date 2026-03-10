@@ -1,0 +1,524 @@
+{
+  "version": 5,
+  "exportedAt": "2026-03-10T12:50:59.911Z",
+  "tonic": "f#",
+  "bpm": 70,
+  "presets": {
+    "StylePresets": {
+      "Syncopé": {
+        "bpm": 70,
+        "jumpOddWeights": [
+          10,
+          1,
+          7,
+          0,
+          0
+        ],
+        "jumpEvenWeights": [
+          1,
+          5,
+          1,
+          2,
+          0
+        ],
+        "tripletChance": [
+          3,
+          3,
+          3
+        ],
+        "afterTripletWeights": [
+          10,
+          0,
+          0,
+          0
+        ],
+        "repetitionProbabilityFactor": 0.25,
+        "noteLengthPercentage": 75,
+        "noBend": false,
+        "noFall": false,
+        "allowCNotes": true,
+        "longMode": "default"
+      },
+      "Mélodique": {
+        "bpm": 70,
+        "jumpOddWeights": [
+          1,
+          10,
+          1,
+          1,
+          0
+        ],
+        "jumpEvenWeights": [
+          5,
+          0,
+          0,
+          0,
+          0
+        ],
+        "tripletChance": [
+          1,
+          1,
+          0
+        ],
+        "afterTripletWeights": [
+          10,
+          0,
+          0,
+          0
+        ],
+        "repetitionProbabilityFactor": 0.25,
+        "noteLengthPercentage": 100,
+        "noBend": false,
+        "noFall": false,
+        "allowCNotes": true,
+        "longMode": "long-only"
+      },
+      "Rapide": {
+        "bpm": 70,
+        "jumpOddWeights": [
+          10,
+          1,
+          0,
+          0,
+          0
+        ],
+        "jumpEvenWeights": [
+          10,
+          1,
+          0,
+          0,
+          0
+        ],
+        "tripletChance": [
+          1,
+          1,
+          0
+        ],
+        "afterTripletWeights": [
+          10,
+          0,
+          0,
+          0
+        ],
+        "repetitionProbabilityFactor": 0,
+        "noteLengthPercentage": 100,
+        "noBend": false,
+        "noFall": false,
+        "allowCNotes": true,
+        "longMode": "default"
+      },
+      "Epars": {
+        "bpm": 70,
+        "jumpOddWeights": [
+          0,
+          1,
+          2,
+          6,
+          0
+        ],
+        "jumpEvenWeights": [
+          0,
+          0,
+          1,
+          0,
+          0
+        ],
+        "tripletChance": [
+          0,
+          0,
+          0
+        ],
+        "afterTripletWeights": [
+          10,
+          0,
+          0,
+          0
+        ],
+        "repetitionProbabilityFactor": 0.25,
+        "noteLengthPercentage": 90,
+        "noBend": true,
+        "noFall": true,
+        "allowCNotes": false,
+        "longMode": "short-only"
+      },
+      "Chaotique": {
+        "bpm": 70,
+        "jumpOddWeights": [
+          4,
+          0,
+          4,
+          0,
+          1
+        ],
+        "jumpEvenWeights": [
+          0,
+          2,
+          0,
+          3,
+          3
+        ],
+        "tripletChance": [
+          1,
+          1,
+          1
+        ],
+        "afterTripletWeights": [
+          0,
+          5,
+          0,
+          5
+        ],
+        "repetitionProbabilityFactor": 0,
+        "noteLengthPercentage": 70,
+        "noBend": true,
+        "noFall": true,
+        "allowCNotes": true,
+        "longMode": "short-only"
+      },
+      "Accentué": {
+        "bpm": 70,
+        "jumpOddWeights": [
+          1,
+          4,
+          0,
+          0,
+          0
+        ],
+        "jumpEvenWeights": [
+          0,
+          0,
+          5,
+          0,
+          0
+        ],
+        "tripletChance": [
+          1,
+          1,
+          1
+        ],
+        "afterTripletWeights": [
+          5,
+          0,
+          0,
+          0
+        ],
+        "repetitionProbabilityFactor": 0.72,
+        "noteLengthPercentage": 90,
+        "noBend": false,
+        "noFall": false,
+        "allowCNotes": true,
+        "longMode": "default"
+      },
+      "bursts": {
+        "bpm": 70,
+        "jumpOddWeights": [
+          5,
+          1,
+          1,
+          0,
+          0
+        ],
+        "jumpEvenWeights": [
+          1,
+          1,
+          5,
+          0,
+          0
+        ],
+        "tripletChance": [
+          0,
+          0,
+          0
+        ],
+        "afterTripletWeights": [
+          10,
+          0,
+          0,
+          0
+        ],
+        "repetitionProbabilityFactor": 0.25,
+        "noteLengthPercentage": 90,
+        "noBend": true,
+        "noFall": true,
+        "allowCNotes": false,
+        "longMode": "short-only"
+      }
+    },
+    "MusicScalePresets": {
+      "eolian": {
+        "primaryTones": "c, d#, g",
+        "secondaryTones": "d, f, g#, a#",
+        "approachTones": "",
+        "forbiddenTones": "c#, e, f#, a, b",
+        "forcedNoteMovements": ""
+      },
+      "dorian": {
+        "primaryTones": "c, d#, g, a#",
+        "secondaryTones": "d, f, a",
+        "approachTones": "c#, b",
+        "forbiddenTones": "e, f#, g#",
+        "forcedNoteMovements": "(c#, d), (g#, a), (b, a#)"
+      },
+      "eolian blues": {
+        "primaryTones": "c, d#, g",
+        "secondaryTones": "d, f, g#, a#",
+        "approachTones": "f#",
+        "forbiddenTones": "c#, e, a, b",
+        "forcedNoteMovements": ""
+      },
+      "phrygian": {
+        "primaryTones": "c, d#, g",
+        "secondaryTones": "c#, f, g#, a#",
+        "approachTones": "d, e, f#, a, b",
+        "forbiddenTones": "",
+        "forcedNoteMovements": ""
+      },
+      "locrian": {
+        "primaryTones": "c, d#, f#",
+        "secondaryTones": "c#, f, g#, a#",
+        "approachTones": "d, e, g, a, b",
+        "forbiddenTones": "",
+        "forcedNoteMovements": ""
+      }
+    },
+    "SynthPresets": {
+      "supersaw": {
+        "oscillatorType": "fatsawtooth",
+        "ambitusMin": "55",
+        "ambitusMax": "78",
+        "envelopeAttack": 0.005,
+        "envelopeDecay": 0.3,
+        "envelopeSustain": 0.8,
+        "envelopeRelease": 0.03,
+        "volumeDb": -4,
+        "spread": 15,
+        "count": 3,
+        "filterFrequency": 8000,
+        "filterEnvelopeAttack": 0.025,
+        "filterEnvelopeSustain": 1,
+        "filterEnvelopeBaseFrequency": 200,
+        "filterEnvelopeOctaves": 3.7,
+        "filterEnvelopeRelease": 0.13,
+        "pulseWidth": 0.5,
+        "pwmModulationFrequency": 0.01,
+        "chorusEnabled": false,
+        "chorusFrequency": 3.9,
+        "chorusDelayTime": 2.1,
+        "chorusDepth": 0.27,
+        "chorusWet": 0.41,
+        "reverbEnabled": true,
+        "jcReverbRoomSize": 0.44,
+        "jcReverbWet": 0.14,
+        "distortionEnabled": false,
+        "distortionAmount": 0.82,
+        "distortionOversample": "4x",
+        "distortionWet": 0.39
+      },
+      "sine": {
+        "oscillatorType": "triangle",
+        "ambitusMin": "55",
+        "ambitusMax": "78",
+        "envelopeAttack": 0.005,
+        "envelopeDecay": 0.3,
+        "envelopeSustain": 0.8,
+        "envelopeRelease": 0.02,
+        "volumeDb": 0,
+        "spread": 20,
+        "count": 3,
+        "filterFrequency": 8000,
+        "filterEnvelopeAttack": 0.013,
+        "filterEnvelopeSustain": 1,
+        "filterEnvelopeBaseFrequency": 200,
+        "filterEnvelopeOctaves": 4.7,
+        "filterEnvelopeRelease": 0.13,
+        "pulseWidth": 0.5,
+        "pwmModulationFrequency": 0.4,
+        "chorusEnabled": false,
+        "chorusFrequency": 2.1,
+        "chorusDelayTime": 2.1,
+        "chorusDepth": 0.37,
+        "chorusWet": 0.25,
+        "reverbEnabled": true,
+        "jcReverbRoomSize": 0.68,
+        "jcReverbWet": 0.07,
+        "distortionEnabled": false,
+        "distortionAmount": 0,
+        "distortionOversample": "2x",
+        "distortionWet": 0.39
+      },
+      "pulse": {
+        "oscillatorType": "pulse",
+        "ambitusMin": "55",
+        "ambitusMax": "78",
+        "envelopeAttack": 0.005,
+        "envelopeDecay": 0.3,
+        "envelopeSustain": 1,
+        "envelopeRelease": 0.02,
+        "volumeDb": -9,
+        "spread": 20,
+        "count": 3,
+        "filterFrequency": 8000,
+        "filterEnvelopeAttack": 0.025,
+        "filterEnvelopeSustain": 1,
+        "filterEnvelopeBaseFrequency": 200,
+        "filterEnvelopeOctaves": 3.8,
+        "filterEnvelopeRelease": 0.13,
+        "pulseWidth": 0.6,
+        "pwmModulationFrequency": 0.4,
+        "chorusEnabled": false,
+        "chorusFrequency": 2.1,
+        "chorusDelayTime": 2.1,
+        "chorusDepth": 0.37,
+        "chorusWet": 0.25,
+        "reverbEnabled": true,
+        "jcReverbRoomSize": 0.78,
+        "jcReverbWet": 0.06,
+        "distortionEnabled": false,
+        "distortionAmount": 0,
+        "distortionOversample": "2x",
+        "distortionWet": 0.39
+      },
+      "pwm": {
+        "oscillatorType": "pwm",
+        "ambitusMin": "55",
+        "ambitusMax": "78",
+        "envelopeAttack": 0.005,
+        "envelopeDecay": 0.3,
+        "envelopeSustain": 1,
+        "envelopeRelease": 0.02,
+        "volumeDb": -9,
+        "spread": 20,
+        "count": 3,
+        "filterFrequency": 8000,
+        "filterEnvelopeAttack": 0.025,
+        "filterEnvelopeSustain": 1,
+        "filterEnvelopeBaseFrequency": 200,
+        "filterEnvelopeOctaves": 3.8,
+        "filterEnvelopeRelease": 0.13,
+        "pulseWidth": 0.5,
+        "pwmModulationFrequency": 0.4,
+        "chorusEnabled": false,
+        "chorusFrequency": 2.1,
+        "chorusDelayTime": 2.1,
+        "chorusDepth": 0.37,
+        "chorusWet": 0.25,
+        "reverbEnabled": true,
+        "jcReverbRoomSize": 0.63,
+        "jcReverbWet": 0.06,
+        "distortionEnabled": false,
+        "distortionAmount": 0,
+        "distortionOversample": "2x",
+        "distortionWet": 0.39
+      },
+      "hardsaw": {
+        "oscillatorType": "fatsawtooth",
+        "ambitusMin": "65",
+        "ambitusMax": "96",
+        "envelopeAttack": 0.003,
+        "envelopeDecay": 0.3,
+        "envelopeSustain": 0.8,
+        "envelopeRelease": 0.03,
+        "volumeDb": -8,
+        "spread": 74,
+        "count": 3,
+        "filterFrequency": 8000,
+        "filterEnvelopeAttack": 0.001,
+        "filterEnvelopeSustain": 1,
+        "filterEnvelopeBaseFrequency": 200,
+        "filterEnvelopeOctaves": 3.7,
+        "filterEnvelopeRelease": 0.13,
+        "pulseWidth": 0.53,
+        "pwmModulationFrequency": 0.01,
+        "chorusEnabled": false,
+        "chorusFrequency": 3.9,
+        "chorusDelayTime": 2.1,
+        "chorusDepth": 0.27,
+        "chorusWet": 0.41,
+        "reverbEnabled": true,
+        "jcReverbRoomSize": 0.44,
+        "jcReverbWet": 0.14,
+        "distortionEnabled": true,
+        "distortionAmount": 0.62,
+        "distortionOversample": "2x",
+        "distortionWet": 0.54
+      }
+    }
+  },
+  "default": {
+    "rhythmSettings": {
+      "bpm": 70,
+      "jumpOddWeights": [
+        0,
+        1,
+        2,
+        6,
+        0
+      ],
+      "jumpEvenWeights": [
+        0,
+        0,
+        1,
+        0,
+        0
+      ],
+      "tripletChance": [
+        0,
+        0,
+        0
+      ],
+      "afterTripletWeights": [
+        10,
+        0,
+        0,
+        0
+      ],
+      "repetitionProbabilityFactor": 0.25,
+      "noteLengthPercentage": 90,
+      "noBend": true,
+      "noFall": true,
+      "allowCNotes": false,
+      "allowAutoLongNotes": true,
+      "longMode": "short-only"
+    },
+    "monosynthSettings": {
+      "oscillatorType": "fatsawtooth",
+      "ambitusMin": "65",
+      "ambitusMax": "96",
+      "envelopeAttack": 0.003,
+      "envelopeDecay": 0.3,
+      "envelopeSustain": 0.8,
+      "envelopeRelease": 0.03,
+      "volumeDb": -8,
+      "spread": 74,
+      "count": 3,
+      "filterFrequency": 8000,
+      "filterEnvelopeAttack": 0.001,
+      "filterEnvelopeSustain": 1,
+      "filterEnvelopeBaseFrequency": 200,
+      "filterEnvelopeOctaves": 3.7,
+      "filterEnvelopeRelease": 0.13,
+      "pulseWidth": 0.53,
+      "pwmModulationFrequency": 0.01,
+      "chorusEnabled": false,
+      "chorusFrequency": 3.9,
+      "chorusDelayTime": 2.1,
+      "chorusDepth": 0.27,
+      "chorusWet": 0.41,
+      "reverbEnabled": true,
+      "jcReverbRoomSize": 0.44,
+      "jcReverbWet": 0.14,
+      "distortionEnabled": true,
+      "distortionAmount": 0.62,
+      "distortionOversample": "2x",
+      "distortionWet": 0.54
+    },
+    "mixSettings": {
+      "melodyVolumeDb": -1,
+      "kickVolumeDb": -2,
+      "backingTrackVolumeDb": -7,
+      "backingTrackEqFrequencyHz": 460,
+      "backingTrackEqGainDb": -12,
+      "backingTrackEqQ": 1
+    }
+  }
+}

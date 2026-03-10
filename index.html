@@ -1,0 +1,153 @@
+<!doctype html>
+<html lang="en">
+  <head>
+     <meta charset="UTF-8" />
+     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+     <meta name="google" content="notranslate" />
+     <title>Afterbeat - Rhythm Game</title>
+     <link rel="icon" href="./assets/favicon-BT1FbfRQ.svg" type="image/svg+xml" />
+     <link rel="mask-icon" href="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA2NCA2NCI+DQogIDx0ZXh0DQogICAgeD0iMTMiDQogICAgeT0iNDYiDQogICAgZmlsbD0iIzAwMCINCiAgICBmb250LWZhbWlseT0iQXJpYWwsIEhlbHZldGljYSwgc2Fucy1zZXJpZiINCiAgICBmb250LXNpemU9IjMxIg0KICAgIGZvbnQtd2VpZ2h0PSI3MDAiDQogICAgbGV0dGVyLXNwYWNpbmc9Ii0yIg0KICA+QTwvdGV4dD4NCiAgPHRleHQNCiAgICB4PSIzMSINCiAgICB5PSIzNiINCiAgICBmaWxsPSIjMDAwIg0KICAgIGZvbnQtZmFtaWx5PSJBcmlhbCwgSGVsdmV0aWNhLCBzYW5zLXNlcmlmIg0KICAgIGZvbnQtc2l6ZT0iMzEiDQogICAgZm9udC13ZWlnaHQ9IjcwMCINCiAgICBsZXR0ZXItc3BhY2luZz0iLTIiDQogID5CPC90ZXh0Pg0KPC9zdmc+DQo=" color="#7fffd4" />
+    <script type="module" crossorigin src="./assets/index-CG1Wl7rK.js"></script>
+    <link rel="stylesheet" crossorigin href="./assets/index-BtK_FoFN.css">
+  </head>
+  <body class="theme-retro-scifi notranslate" translate="no">
+    <div id="calibrationToast" class="calibration-toast hidden" aria-live="polite" aria-hidden="true"></div>
+    <main class="app">
+      <section id="startScreen" class="screen start-screen">
+        <div id="startMenuView" class="start-menu-view">
+          <p class="app-version">Build <span id="appVersion"></span></p>
+          <h1 class="start-title" aria-label="Afterbeat">Afterbeat</h1>
+          <p class="start-subtitle">Rhythm Game</p>
+
+          <div class="start-menu">
+            <button id="startGame" class="start-menu-entry" type="button">Start game</button>
+            <button id="calibration" class="start-menu-entry" type="button">Calibration</button>
+            <button id="startMenuSettings" class="start-menu-entry" type="button" aria-expanded="false" aria-controls="settingsScreen">Settings</button>
+          </div>
+        </div>
+
+      </section>
+      <section id="savedSeedsScreen" class="screen start-screen settings-screen hidden">
+        <section id="savedSeedsPanel" class="controls card start-settings-page" aria-hidden="false">
+          <div class="start-settings-header">
+            <div>
+              <h2 id="savedSeedsTitle" class="start-settings-title">Saved seeds</h2>
+              <p id="savedSeedsSubtitle" class="track-select-card__meta hidden"></p>
+            </div>
+            <button id="savedSeedsBack" type="button">Back</button>
+          </div>
+          <button id="savedSeedsStartTrack" class="saved-seed-play" type="button">Play this track</button>
+          <p id="savedSeedsEmpty" class="saved-seeds-empty hidden">No saved seeds yet.</p>
+          <div id="savedSeedsList" class="saved-seeds-list" aria-live="polite"></div>
+          <form id="manualSeedForm" class="saved-seed-manual" autocomplete="off">
+            <label class="settings-control" for="manualSeedInput">
+              <span>Play a specific seed for this track</span>
+              <input id="manualSeedInput" type="text" inputmode="numeric" placeholder="Enter an integer seed" />
+            </label>
+            <button id="manualSeedPlay" type="submit">Play</button>
+          </form>
+          <p id="manualSeedFeedback" class="saved-seed-feedback hidden" aria-live="polite"></p>
+        </section>
+      </section>
+      <section id="trackSelectScreen" class="screen start-screen settings-screen hidden">
+        <section id="trackSelectPanel" class="controls card start-settings-page" aria-hidden="false">
+          <div class="start-settings-header">
+            <h2 class="start-settings-title">Select track</h2>
+            <button id="trackSelectBack" type="button">Back</button>
+          </div>
+          <p id="trackSelectEmpty" class="saved-seeds-empty hidden">No playable tracks found.</p>
+          <div id="trackSelectList" class="track-select-list" aria-live="polite"></div>
+        </section>
+      </section>
+      <section id="settingsScreen" class="screen start-screen settings-screen hidden">
+        <section id="startSettingsPanel" class="controls card start-settings-page" aria-hidden="false">
+          <div class="start-settings-header">
+            <h2 class="start-settings-title">Settings</h2>
+            <button id="startSettingsBack" type="button">Back</button>
+          </div>
+
+          <div class="settings-group">
+            <label class="settings-control">
+              <span class="settings-control__label">Input latency offset (ms): <span id="latencyValue">15</span></span>
+              <input id="latency" type="range" min="0" max="200" step="1" value="15" />
+            </label>
+
+            <label class="settings-control">
+              <span class="settings-control__label">Display latency offset (ms): <span id="visualLatencyValue">0</span></span>
+              <input id="visualLatency" type="range" min="-200" max="200" step="1" value="0" />
+            </label>
+
+          </div>
+
+        </section>
+      </section>
+      <section id="gameScreen" class="screen game-screen hidden">
+        <button id="stopGame" class="stop-button" type="button">STOP</button>
+        <button id="pauseGame" class="pause-button" type="button">PAUSE</button>
+        <p id="phaseIndicator" class="phase-indicator hidden" aria-live="polite"></p>
+        <div id="inputCalibrationHeader" class="input-calibration-header hidden" aria-hidden="true">
+          <p id="inputCalibrationTitle" class="input-calibration-title">Input Latency Calibration</p>
+          <p id="inputCalibrationHint" class="input-calibration-hint">Tap in time with the beats.</p>
+        </div>
+        <button id="calibrationSkip" class="calibration-skip-button calibration-action-button hidden" type="button">Skip</button>
+        <p id="tapJudgement" class="tap-judgement" aria-live="polite"></p>
+        <p id="calibrationProgress" class="calibration-progress hidden"></p>
+        <div id="calibrationOffsetViz" class="calibration-offset-viz hidden" aria-hidden="true">
+          <span id="calibrationOffsetVizValue" class="calibration-offset-viz__value">-- ms</span>
+          <div class="calibration-offset-viz__track">
+            <span id="calibrationOffsetVizThumb" class="calibration-offset-viz__thumb"></span>
+          </div>
+          <p id="calibrationOffsetVizMetrics" class="calibration-offset-viz__metrics">sigma: n/a | p--: n/a | std: n/a</p>
+        </div>
+        <div id="displayCalibrationPanel" class="display-calibration-panel hidden" aria-hidden="true">
+          <div class="display-calibration-panel__header">
+            <p class="display-calibration-panel__title">Display Latency Calibration</p>
+            <p class="display-calibration-panel__hint">Adjust until it lines up as closely as possible.</p>
+          </div>
+          <div class="display-calibration-point-row" aria-hidden="true">
+            <span id="displayCalibrationBeatPoint" class="pattern-line-event is-visible display-calibration-point display-calibration-point--player">
+              <span class="pattern-line-hit"></span>
+            </span>
+          </div>
+          <div class="display-calibration-panel__controls">
+            <div class="display-calibration-panel__direction-hint" aria-hidden="true">
+              <span>&larr; Earlier visuals</span>
+              <span>Later visuals &rarr;</span>
+            </div>
+            <label class="display-calibration-panel__label" for="displayCalibrationSlider">
+              Offset (ms): <span id="displayCalibrationValue">0</span>
+            </label>
+            <input id="displayCalibrationSlider" type="range" min="-200" max="200" step="1" value="0" />
+          </div>
+          <div class="display-calibration-panel__actions">
+            <button id="displayCalibrationSave" class="calibration-action-button" type="button">Save</button>
+            <button id="displayCalibrationCancel" class="calibration-action-button" type="button">Skip</button>
+          </div>
+        </div>
+        <p id="patternScoreFlash" class="pattern-score-flash" aria-live="polite"></p>
+        <div id="patternLine" class="pattern-line" aria-hidden="true">
+          <div class="pattern-line__measure-bars">
+            <span id="patternLineMeasureBarStart" class="pattern-line-measure-bar pattern-line-measure-bar--start"></span>
+            <span id="patternLineMeasureBarEnd" class="pattern-line-measure-bar pattern-line-measure-bar--end"></span>
+          </div>
+          <div id="patternLineTrack" class="pattern-line__track"></div>
+        </div>
+        <div id="patternScoreDots" class="pattern-score-dots" aria-hidden="true"></div>
+      </section>
+
+      <section id="resultScreen" class="screen result-screen hidden">
+        <h1 id="resultTitle"></h1>
+        <p id="resultText"></p>
+        <div id="resultSeedPanel" class="result-seed-panel hidden" aria-live="polite">
+          <p id="resultSeedPrompt" class="result-seed-prompt"></p>
+          <p id="resultSeedValue" class="result-seed-value hidden"></p>
+          <button id="saveResultSeed" type="button">Save seed</button>
+          <button id="saveReplayResultSeed" type="button">Save seed and replay</button>
+          <button id="replayResultSeed" type="button">Replay</button>
+          <p id="resultSeedFeedback" class="result-seed-feedback hidden"></p>
+        </div>
+        <button id="backToMenu" type="button">Back to menu</button>
+      </section>
+    </main>
+  </body>
+</html>
