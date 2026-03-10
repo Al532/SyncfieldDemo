@@ -213,8 +213,8 @@
       "dorian": {
         "primaryTones": "c, d#, g, a#",
         "secondaryTones": "d, f, a",
-        "approachTones": "c#, f#, g#, b",
-        "forbiddenTones": "e"
+        "approachTones": "",
+        "forbiddenTones": "e, c#, f#, g#, b"
       },
       "eolian blues": {
         "primaryTones": "c, d#, g",
