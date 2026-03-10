@@ -1,14 +1,14 @@
-# --- NOTICE ---
+﻿# --- NOTICE ---
 # Format attendu :
-# - En-tête global : BPM=..., offset=..., tonique=..., scale=…
-# - Exemple timeline : 8: rapide | BPM=90
+# - Global header: BPM=..., offset=..., tonic=..., scale=...
+# - Exemple timeline : 8: fast | BPM=90
 # - Timeline : "<cycle>: <pattern> [HT] [@Label] [| override=valeur ...]"
 # - Rappel : "<cycle>: @Source [-r|--rhythm-only] [@Dest] [| override=valeur ...]"
-# - Cycle absent => répétition du précédent
-# - 1 cycle = 2 mesures jouées (tour CPU puis tour joueur)
-# - "@A" seul => rejoue le snapshot complet mémorisé via "... @A"
-# - "@A -r" => réutilise seulement le rythme de A (mélodie/articulations régénérées)
-# - "@A -r @B" => idem puis sauvegarde le nouveau snapshot complet sous B
+# - Missing cycle => repeat previous pattern
+# - 1 cycle = 2 played bars (CPU turn, then player turn)
+# - "@A" alone => replay the full snapshot previously saved with "... @A"
+# - "@A -r" => reuse only A rhythm (melody and articulations regenerated)
+# - "@A -r @B" => same, then save the new full snapshot as B
 # - "end" optionnel pour borner la track
 # - "hardEnd" termine la track puis fade l'audio sur 10s
 
@@ -21,19 +21,20 @@ scale=eolian blues
 tune=12cts
 synth=supersaw
 
-1: epars HT @C
+1: sparse HT @C
 2: @C -r
-3: accentue @A
+3: accented @A
 4: @A -r
-5: syncope @B
+5: syncopated @B
 6: @B -r
-7: melodique @E
+7: melodic @E
 8: @E -r
-9: epars HT @D
+9: sparse HT @D
 10: @D -r
 11: @A
 12: @B
 13: @A
 14: @B
-15: rapide
+15: fast
 19: end
+

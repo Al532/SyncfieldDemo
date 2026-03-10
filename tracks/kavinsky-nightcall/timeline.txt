@@ -1,14 +1,14 @@
-# --- NOTICE ---
+﻿# --- NOTICE ---
 # Format attendu :
-# - En-tête global : BPM=..., offset=..., tonique=..., scale=…
-# - Exemple timeline : 8: rapide | BPM=90
+# - Global header: BPM=..., offset=..., tonic=..., scale=...
+# - Exemple timeline : 8: fast | BPM=90
 # - Timeline : "<cycle>: <pattern> [HT] [@Label] [| override=valeur ...]"
 # - Rappel : "<cycle>: @Source [-r|--rhythm-only] [@Dest] [| override=valeur ...]"
-# - Cycle absent => répétition du précédent
-# - 1 cycle = 2 mesures jouées (tour CPU puis tour joueur)
-# - "@A" seul => rejoue le snapshot complet mémorisé via "... @A"
-# - "@A -r" => réutilise seulement le rythme de A (mélodie/articulations régénérées)
-# - "@A -r @B" => idem puis sauvegarde le nouveau snapshot complet sous B
+# - Missing cycle => repeat previous pattern
+# - 1 cycle = 2 played bars (CPU turn, then player turn)
+# - "@A" alone => replay the full snapshot previously saved with "... @A"
+# - "@A -r" => reuse only A rhythm (melody and articulations regenerated)
+# - "@A -r @B" => same, then save the new full snapshot as B
 # - "end" optionnel pour borner la track
 # - "hardEnd" termine la track puis fade l'audio sur 10s
 
@@ -21,20 +21,41 @@ scale=eolian
 synth=pulse
 
 
-epars HT
+sustained HT
 -r HT
-epars HT
+sparse HT
 -r HT
-melodique @a
+melodic @a
 -r
-syncope @b
+melodic @b
 -r
-melodique
+melodic @c
 -r
-syncope
+melodic @d
+-r
+sustained
+-r
+sustained
+-r
+sustained
+-r
+sustained
 -r
 @a
+-r
 @b
+-r
+@c
+-r
+@d
+-r
 @a
+-r
 @b
+-r
+@c
+-r
+@d
+-r
 hardEnd
+
